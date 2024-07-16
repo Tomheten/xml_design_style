@@ -27,5 +27,9 @@ observer.observe(xmlDoc, {
 
 const body = xmlDoc.querySelector('body')
 body.append(document.createTextNode('sdf'))
-
 document.body.append(xmlDoc)
+
+// xPath
+const bodyByXPath = document.evaluate('/html/body', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+console.log(bodyByXPath)
+
