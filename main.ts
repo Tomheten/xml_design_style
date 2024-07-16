@@ -10,7 +10,7 @@ console.dir(xmlDoc);
 
 const serializer = new XMLSerializer();
 const xmlStr = serializer.serializeToString(xmlDoc);
-console.log('-------- ser xml', xmlStr)
+console.log('-------- ser xml', xmlStr);
 
 let observer = new MutationObserver(mutationRecords => {
     console.log(mutationRecords); // console.log(изменения)
@@ -22,14 +22,16 @@ observer.observe(xmlDoc, {
     characterData: true,
     childList: true, // наблюдать за непосредственными детьми
     subtree: true, // и более глубокими потомками
-    characterDataOldValue: true // передавать старое значение в колбэк
+    characterDataOldValue: true, // передавать старое значение в колбэк
 });
 
-const body = xmlDoc.querySelector('body')
-body.append(document.createTextNode('sdf'))
-document.body.append(xmlDoc)
+const body = xmlDoc.querySelector('body');
+body.append(document.createTextNode('sdf'));
+document.body.append(xmlDoc);
 
 // xPath
-const bodyByXPath = document.evaluate('/html/body', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-console.log(bodyByXPath)
+const bodyByXPath = document
+    .evaluate('//body', xmlDoc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+    .singleNodeValue;
+console.log(bodyByXPath);
 

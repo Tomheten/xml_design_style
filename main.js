@@ -20,5 +20,5 @@ var body = xmlDoc.querySelector('body');
 body.append(document.createTextNode('sdf'));
 document.body.append(xmlDoc);
 // xPath
-var bodyByXPath = document.evaluate('/html/body', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-console.log(bodyByXPath);
+var bodyByXPath = document.evaluate('//body', xmlDoc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+console.log('bodyByXPath', bodyByXPath);
